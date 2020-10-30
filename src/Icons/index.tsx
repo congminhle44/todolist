@@ -11,3 +11,5 @@ export { default as Cancel } from "./Cancel";
 export { default as Delete } from "./Delete";
 
 export { default as Plus } from "./Plus";
+
+export { default as Arrow } from "./Arrow";

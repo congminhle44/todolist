@@ -1,11 +1,14 @@
 import React, { FC } from "react";
+import Debounce from "../../Helper/Debounce";
 import { Search } from "../../Icons";
 
 import styles from "./header.module.css";
 
-interface HeaderProps {}
+interface HeaderProps {
+  search?: any;
+}
 
-const Header: FC<HeaderProps> = (props) => {
+const Header: FC<HeaderProps> = ({ search }) => {
   return (
     <div className={styles.header}>
       <div className={styles.logo}>Todo</div>
@@ -14,7 +17,13 @@ const Header: FC<HeaderProps> = (props) => {
           <div className={styles.search}>
             <Search />
           </div>
-          <input className={styles.input} placeholder="Search for note" />
+          <input
+            onChange={Debounce((e: any) => {
+              search(e.target.value);
+            }, 500)}
+            className={styles.input}
+            placeholder="Search for note"
+          />
         </div>
       </div>
     </div>

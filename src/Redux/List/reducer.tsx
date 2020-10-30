@@ -2,6 +2,7 @@ import * as ActionTypes from "./constant";
 
 let initialState = {
   payload: [],
+  searchList: [],
   loading: false,
   error: null,
   total: null,
@@ -14,6 +15,7 @@ const listReducer = (state = initialState, action: any) => {
 
     case ActionTypes.GET_LIST:
       state.total = action.total;
+      state.searchList = action.payload;
       return {
         ...state,
         loading: false,

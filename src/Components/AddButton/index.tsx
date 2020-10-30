@@ -26,8 +26,10 @@ const AddButton: FC<AddProps> = ({ createNote }) => {
   };
 
   const addNote = () => {
-    createNote(listObj);
-    setShow(false);
+    if (Object.keys(listObj).length > 0) {
+      createNote(listObj);
+      setShow(false);
+    }
   };
 
   return (

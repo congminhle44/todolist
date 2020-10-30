@@ -140,6 +140,9 @@ const List: FC<ListProps> = ({
             </div>
             <div className={styles.event}>
               <div
+                onClick={() => {
+                  handleCheck(item);
+                }}
                 className={clsx(styles.check, item.isDone && styles.checked)}
               >
                 <Check />
