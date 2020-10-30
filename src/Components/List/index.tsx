@@ -106,7 +106,12 @@ const List: FC<ListProps> = ({
             }
             className={clsx(styles.card, item.isDone && styles.done)}
           >
-            <div className={styles.info}>
+            <div
+              onClick={() => {
+                handleCheck(item);
+              }}
+              className={styles.info}
+            >
               <p className={styles.name}>
                 {edit && item.id === listId ? (
                   <input
@@ -135,9 +140,6 @@ const List: FC<ListProps> = ({
             </div>
             <div className={styles.event}>
               <div
-                onClick={() => {
-                  handleCheck(item);
-                }}
                 className={clsx(styles.check, item.isDone && styles.checked)}
               >
                 <Check />
