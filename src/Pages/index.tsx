@@ -17,13 +17,14 @@ const Index: FC<IndexProps> = (props: any) => {
 
   const [limit, setLimit] = useState(8);
 
+  const [searchKey, setSearchKey] = useState("");
+
   const dispatch = useDispatch();
 
-  const getList = useCallback(() => dispatch(action.getList(page, limit)), [
-    page,
-    limit,
-    dispatch,
-  ]);
+  const getList = useCallback(
+    () => dispatch(action.getList(page, limit, searchKey)),
+    [page, limit, dispatch, searchKey]
+  );
 
   const createNote = (listobj: object) => dispatch(action.createList(listobj));
 
@@ -38,6 +39,10 @@ const Index: FC<IndexProps> = (props: any) => {
     (state: RootStateOrAny) => state.listReducer.payload
   );
 
+  const searchPayload = useSelector(
+    (state: RootStateOrAny) => state.listReducer.searchList
+  );
+
   const loading = useSelector(
     (state: RootStateOrAny) => state.listReducer.loading
   );
@@ -50,11 +55,11 @@ const Index: FC<IndexProps> = (props: any) => {
 
   return (
     <div>
-      <Header />
+      <Header search={setSearchKey} />
       <div className="main">
-        <Support />
+        <Support search={setSearchKey} total={total} newLimit={setLimit} />
         <List
-          list={payload}
+          list={searchKey === "" ? payload : searchPayload}
           deleteList={deleteList}
           editList={editList}
           total={total}

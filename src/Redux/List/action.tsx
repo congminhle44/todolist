@@ -3,19 +3,26 @@ import { list } from "../../Config/api/list";
 
 import * as ActionTypes from "./constant";
 
-export const getList = (page: number, limit: number) => {
+export const getList = (page: number, limit: number, searchKey: string) => {
   return async (dispatch: any) => {
     dispatch({
       type: ActionTypes.REQUEST,
     });
     try {
-      const payload = await api.get(`${list}?_page=${page}&_limit=${limit}`);
+      const payload = await api.get(
+        `${list}?${
+          searchKey === ""
+            ? `_page=${page}&_limit=${limit}`
+            : `${list}?_filter&name=${searchKey}`
+        }`
+      );
 
       const total = payload.headers["x-total-count"];
 
       dispatch({
         type: ActionTypes.GET_LIST,
         total,
+        searchList: payload.data,
         payload: payload.data,
       });
     } catch (error) {
