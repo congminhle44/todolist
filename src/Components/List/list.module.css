@@ -1,0 +1,149 @@
+.list {
+  margin-top: 1.125rem;
+  padding: 0 0.9375rem;
+  position: relative;
+}
+
+.cardWrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.info {
+  width: 90%;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  background-color: var(--white);
+  border-radius: 0.375rem;
+  padding: 0.75rem 0.875rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.125rem;
+  transition: all 0.3s ease-in;
+}
+
+.card.done {
+  opacity: 0.6;
+}
+
+.card:last-child {
+  margin-bottom: 0;
+}
+
+.title {
+  font-size: 2.25rem;
+  text-transform: uppercase;
+  line-height: calc(36 / 36);
+  text-align: center;
+  color: var(--white);
+  margin: 2.1875rem;
+  display: none;
+}
+
+.name {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.date {
+  margin: 0.5625rem 0;
+  font-size: 0.875rem;
+  color: var(--default-heavy);
+}
+
+.des {
+  line-height: 1rem;
+  font-size: 0.875rem;
+  width: 100%;
+}
+
+.desInput {
+  width: 100%;
+  font-size: 1rem;
+  word-wrap: break-word;
+  word-break: break-all;
+  height: 12.5rem;
+  min-height: 6.25rem;
+}
+
+.check {
+  width: 1.4375rem;
+  height: 1.4375rem;
+  border-radius: 50%;
+  border: 1px solid var(--main);
+  color: var(--main);
+  padding: 0.2rem;
+  cursor: pointer;
+  margin-bottom: 0.875rem;
+  transition: all 0.3s ease-in;
+}
+
+.checked {
+  color: white;
+  background-color: var(--main);
+}
+
+.cancel {
+  animation: show 0.3s;
+}
+
+.delete {
+  cursor: pointer;
+  animation: show 0.3s;
+}
+
+.pencil {
+  cursor: pointer;
+  margin: 0.875rem 0;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-50%) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (min-width: 768px) {
+  .list {
+    padding: 0 2rem;
+  }
+
+  .title {
+    display: block;
+  }
+
+  .card {
+    width: 21.5625rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .list {
+    padding: 0 4.375rem;
+  }
+
+  .card {
+    width: 27.1875rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .list {
+    padding: 0 2.375rem;
+  }
+
+  .card {
+    width: 27.8125rem;
+  }
+}

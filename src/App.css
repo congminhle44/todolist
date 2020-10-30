@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  --white: #ffffff;
+  --main: #537fbe;
+  --default: #e3e3e3;
+  --default-heavy: #999999;
+}
+
+body {
+  background-color: var(--main);
+  font-family: "Inter", sans-serif;
+}
