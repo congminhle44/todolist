@@ -6,6 +6,7 @@ import AddButton from "../Components/AddButton";
 import Header from "../Components/Header";
 
 import List from "../Components/List";
+import Support from "../Components/Support";
 
 import * as action from "../Redux/List/action";
 
@@ -23,6 +24,8 @@ const Index: FC<IndexProps> = (props: any) => {
     limit,
     dispatch,
   ]);
+
+  const createNote = (listobj: object) => dispatch(action.createList(listobj));
 
   const editList = (id: number, listobj: object) =>
     dispatch(action.editList(id, listobj));
@@ -49,6 +52,7 @@ const Index: FC<IndexProps> = (props: any) => {
     <div>
       <Header />
       <div className="main">
+        <Support />
         <List
           list={payload}
           deleteList={deleteList}
@@ -60,7 +64,7 @@ const Index: FC<IndexProps> = (props: any) => {
           }}
         />
       </div>
-      <AddButton />
+      <AddButton createNote={createNote} />
     </div>
   );
 };

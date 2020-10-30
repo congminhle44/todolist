@@ -1,7 +1,7 @@
 .plus {
   background-color: var(--white);
-  width: 3.25rem;
-  height: 3.25rem;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
   position: fixed;
   bottom: 1.0625rem;
@@ -10,4 +10,17 @@
   box-shadow: drop-shadow(-2px 2px 4px rgba(0, 0, 0, 0.25)),
     drop-shadow(2px 1px 0px rgba(0, 0, 0, 0.25));
   cursor: pointer;
+}
+
+.name {
+  margin-bottom: 1.3125rem;
+}
+
+.event {
+  display: flex;
+  align-items: center;
+}
+
+.add {
+  margin-left: 0.6875rem;
 }

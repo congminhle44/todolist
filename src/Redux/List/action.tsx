@@ -24,6 +24,23 @@ export const getList = (page: number, limit: number) => {
   };
 };
 
+export const createList = (listObj: object) => {
+  return async (dispatch: any) => {
+    dispatch({
+      type: ActionTypes.REQUEST,
+    });
+    try {
+      const payload = await api.post(list, listObj);
+      dispatch({
+        type: ActionTypes.CREATE_LIST,
+        payload: payload.data,
+      });
+    } catch (err) {
+      return err;
+    }
+  };
+};
+
 export const editList = (id: number, listObj: object) => {
   return async (dispatch: any) => {
     dispatch({

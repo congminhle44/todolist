@@ -1,4 +1,3 @@
-import { stat } from "fs";
 import * as ActionTypes from "./constant";
 
 let initialState = {
@@ -19,6 +18,13 @@ const listReducer = (state = initialState, action: any) => {
         ...state,
         loading: false,
         payload: [...state.payload, ...action.payload],
+      };
+
+    case ActionTypes.CREATE_LIST:
+      return {
+        ...state,
+        loading: false,
+        payload: [...state.payload, action.payload],
       };
 
     case ActionTypes.EDIT_LIST:
